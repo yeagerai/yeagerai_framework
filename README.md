@@ -80,10 +80,11 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 If you have any questions about licensing or would like to use this program under a different license, please contact [info@yeager.ai](mailto:info@yeager.ai) to discuss commercial licensing options.
 
-The commercial license includes additional rights beyond those granted under the AGPL3 license and is available on a per-customer basis and pricing is determined by the scope of the intended use.
-
 ## Engage with the community
 
-If you find the Yeager SDK useful, please consider giving us a star on GitHub. This will help us reach more developers and continue to improve our product.
+If you find the Yeager SDK useful, please consider giving us a star on GitHub. 
+This will help us reach more developers and continue to improve our product.
 
-We also have a Discord server where you can connect with other Yeager users, ask questions, and get support. Join us [here](https://discord.gg/VpfmXEMN66)!
+We also have a Discord server where you can connect with other Yeager users, ask questions, and get support. 
+
+Join us [here](https://discord.gg/VpfmXEMN66)!

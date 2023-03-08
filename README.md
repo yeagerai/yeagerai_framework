@@ -1,6 +1,23 @@
 # Yeager SDK
 
-Yeager is an SDK for exponential development, powered by generative AI. Our SDK allows developers to build apps faster and more efficiently by automatically creating and optimizing workflows and projects.
+```
+Hey there, AI enthusiasts!
+
+We are thrilled to introduce you to Yeager SDK, the groundbreaking platform that harnesses the power of generative AI to design, code, test, and deploy software.
+
+Our platform offers a wide range of features that streamline development and make it more accessible to everyone. With the limitless potential of generative AI, the possibilities for creating innovative software are truly endless. We want you to dive in and explore these possibilities and we encourage you to share your discoveries with the community.
+
+We strongly believe that collaboration and shared knowledge are essential to push the boundaries of AI development, and we are excited to see what we can achieve together. Let's work together to build the apps that will shape the future of humanity!
+
+Warmly,
+The Yeager Team
+```
+
+## Introducing the Yeager SDK:
+### A generative AI-powered Software Development Kit that makes it easy for anyone to build, test, and deploy any automated process.
+\
+![Yeager Diagram](./docs\images\diagram1.png)
+
 
 ## Getting Started
 
@@ -27,13 +44,12 @@ To get started with the Yeager SDK, follow these steps:
 
 ## Features
 
-The Yeager SDK comes with a range of features designed to help you achieve exponential development, including:
+- **Natural language input**: Yeager allows developers to describe their app idea in plain English, making it easy to get started a project started in seconds.
 
-- **Speak your mind**: With Yeager, developers can describe their app idea in natural language, making it easy to get started on a project in seconds.
+- **Automated code generation**: Yeager generates code, workflows, and documentation automatically, reducing the need for manual coding and saving time.
 
-- **Hands-free coding**: Yeager generates the code, workflows, and documentation for you automatically, so you can focus on perfecting your app's user experience.
+- **Total control**: Yeager's interactive modification cycle lets you fine-tune the generated code and workflows to meet your specific needs, providing total control over your app development process.
 
-- **Total control**: Yeager's interactive modification cycle lets you fine-tune the generated code and workflows to meet your needs, ensuring that your app is optimized for success.
 
 ## Examples
 
@@ -58,11 +74,20 @@ For full documentation on the Yeager SDK, please visit [the docs]().
 
 If you need help using the Yeager SDK, please reach out to our support team via our [discord server](https://discord.gg/VpfmXEMN66).
 
+## Engage with the community
+
+If you find the Yeager SDK useful, please consider giving us a star on GitHub. 
+This will help us reach more developers and continue to improve our product.
+
+We also have a Discord server where you can connect with other Yeager users, ask questions, and get support. 
+
+[Join us!](https://discord.gg/VpfmXEMN66)
+
 ## Contributing
 
 We welcome contributions to the Yeager SDK.
 
-Before contributing, please read our [Contributor License Agreement (CLA)](https://example.com/cla-form). The CLA requires that contributors grant certain rights to the project's maintainers, such as the right to use, modify, and redistribute their contributions.
+Before contributing, please read our [Contributing guidelines](CONTRIBUTING.md). The CLA requires that contributors grant certain rights to the project's maintainers, such as the right to use, modify, and redistribute their contributions.
 
 To contribute to the project, please follow these steps:
 
@@ -79,12 +104,3 @@ This program is free software: you can redistribute it and/or modify it under th
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License, version 3, for more details.
 
 If you have any questions about licensing or would like to use this program under a different license, please contact [info@yeager.ai](mailto:info@yeager.ai) to discuss commercial licensing options.
-
-## Engage with the community
-
-If you find the Yeager SDK useful, please consider giving us a star on GitHub. 
-This will help us reach more developers and continue to improve our product.
-
-We also have a Discord server where you can connect with other Yeager users, ask questions, and get support. 
-
-Join us [here](https://discord.gg/VpfmXEMN66)!

@@ -1,7 +1,7 @@
-# The Yeager Framework: Empower AI with your Domain Expertise
-The Yeager Framework is a comprehensive set of tools designed for developers to create AI Experts tailored to specific domains. By leveraging these tools, you can seamlessly integrate domain-specific knowledge and expertise into a bot powered by generative AI models, such as LLMs (Large Language Models).
+# The Yeager Framework: Embed AI with Domain Expertise
+The Yeager Framework is a comprehensive set of tools designed to enable anyone apply their know-how to create AI Experts. By leveraging these tools, you can seamlessly integrate domain-specific knowledge and expertise into a bot powered by generative AI models, such as LLMs (Large Language Models).
 
-The core/ directory houses the essential code and routines for building your custom AI Experts, while the experts/ folder showcases examples of AI Experts created using these routines.
+The Framework is organized as follows: the `core/` directory houses the essential code and routines for building custom AI Experts, while the `experts/` folder showcases some examples created using these routines.
 
 ## Core Features
 The Yeager Framework boasts several features that streamline the AI Expert creation process:
@@ -16,14 +16,34 @@ The Yeager Framework boasts several features that streamline the AI Expert creat
 
 Upcoming features:
 
-- Integrated Payments: Support for both fiat and cryptocurrency payments.
+- yExpertBuilder
+- Langchain Integration
+- Payments Layer
+- Composability Layer
+- Automated Testing & Code Improvement
 
-## AI Teammates
+## AI Experts
 We are actively developing open-source AI Experts to demonstrate the capabilities of the Yeager Framework. Here are some projects in the pipeline:
+
 ### yWorkflows
 yWorkflows generates custom workflows based on a text prompt you provide and automatically uploads the entire workflow to GitHub. To use yWorkflows, simply call the `/create` command in our [discord server](https://discord.com/invite/VpfmXEMN66).
-### yMateBuilder: (in progress) 
-yMateBuilder creates AI Experts tailored to your domain based on a text prompt you provide. Once created, the entire AI Expert is uploaded to GitHub. To use yMateBuilder, call the `/create-expert` command in our [discord server](https://discord.com/invite/VpfmXEMN66).
+
+You can find a list of all the Community created Workflows [here](https://github.com/search/advanced?q=org%3Ayeagerai+yWorkflows-&type=Repositories)
+
+### yExpertBuilder: (in progress) 
+yExpertBuilder creates AI Experts based on a text prompt you provide in the form:
+
+```
+{EXPERT NAME}
+Description: {Description}
+Commands: 
+/{command_1}: {description_command_1}
+/{command_2}: {description_command_2}
+/{command_3}: {description_command_3}
+...
+```
+
+Once created, the entire AI Expert is uploaded to GitHub. To use yExpertBuilder, call the `/create-expert` command in our [discord server](https://discord.com/invite/VpfmXEMN66).
 
 ## Getting Started building with the Yeager Framework
 To begin exploring the possibilities of the Yeager Framework, follow these steps:

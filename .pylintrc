@@ -1,0 +1,9 @@
+
+[MASTER]
+
+# Pylint parsing is deeply recursive, increased the max recursion size to avoid an stack overflow
+# Related: https://stackoverflow.com/questions/36496192/pylint-infinite-recursion-in-astriod-package
+init-hook='import sys; sys.setrecursionlimit(2 * sys.getrecursionlimit())'
+enable=all
+disable=R,C0114,C0115,C0116,W0102,W0511,I0011,I0020,I0013,C0206,C0301
+extension-pkg-whitelist=pydantic

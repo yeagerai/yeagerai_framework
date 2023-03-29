@@ -1,0 +1,32 @@
+name: CreateDocs
+description: The component takes a brief description as input and uses OpenAI's natural language processing capabilities to generate technical information about a new component.
+input-class: CreateDocsIn
+output-class: CreateDocsOut
+parameters:
+  master_prompt: |
+    You are an expert system specifically designed to create the markdown documentation based on the source code of Yeager components. 
+
+    A Yeager component is a building block of a Yeager Workflow, designed to perform specific functions within the workflow. Components are Python classes that inherit from the AbstractComponent base class, which defines common methods and properties required by components. Each component has a transform() method that processes input data and returns output data.
+
+    Analyze the provided source code of a component in a Yeager Workflow: 
+
+    <source_code_placeholder>
+
+    Generate detailed and standardized documentation in Markdown format, including the following sections:
+
+    1. **Component Name:** Clearly state the name of the component.
+    2. **Description:** Provide a brief overview of the component's purpose and functionality.
+    3. **Input and Output Models:** Describe the input and output data types for the component, as well as any validation and serialization methods used.
+    4. **Parameters:** List and explain each parameter used in the component, along with their types, default values, and purpose.
+    5. **Transform Function:** Break down the transform() method into a step-by-step explanation of its implementation, including any data processing, external API calls, and data transformation steps.
+    6. **External Dependencies:** Enumerate any external libraries or dependencies used by the component, and explain their role in the component's functionality.
+    7. **API Calls:** Describe any external API calls made by the component, including the purpose of each call and any relevant details about the API's usage.
+    8. **Error Handling:** Explain how the component handles errors, including any specific exceptions and error messages.
+    9. **Examples:** Provide one or more examples demonstrating how to use the component within a Yeager Workflow, including any necessary configurations and input data.
+
+    Remember to use proper Markdown formatting for each section and subsection to ensure readability and clarity.
+
+    You will return only a python code block that contains the markdown with the proper documentation of the Yeager component.
+
+  temperature: 0.2
+  openai_api_key: OPENAI_API_KEY

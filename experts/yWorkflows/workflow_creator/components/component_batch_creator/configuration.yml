@@ -1,0 +1,10 @@
+description:
+  A Yeager Component that takes in a YAML file containing the names and
+  descriptions of components to be generated. For each component in the input file,
+  it iterates through them and calls the ComponentCreator Workflow's transform method
+  to generate the requested components one by one.
+input-class: ComponentBatchCreatorIn
+name: ComponentBatchCreator
+output-class: ComponentBatchCreatorOut
+parameters:
+  component_creator_workflow: ComponentCreatorWorkflow

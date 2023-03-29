@@ -1,0 +1,73 @@
+name: CreateExcFlow
+description: The component takes a brief description as input and uses OpenAI's natural language processing capabilities to generate technical information about a new component.
+input-class: CreateExcFlowIn
+output-class: CreateExcFlowOut
+parameters:
+    master_prompt: |
+        A Yeager Execution flow is a yaml file that contains how a Yeager Workflow is internally connected and which is the execution order.
+        You are an expert system in creating exc_flow.yml files given a technical description of how a Yeager Workflow works.
+        This is the technical information of the Yeager Workflow that you have to use to create the exc_flow.yml:
+
+        <technical_information>
+
+        generate a exc_flow.yml file that only contains the following sections:
+
+        1. **components:** Is a list of the components that conform the workflow. It has three subsections: class, module-path and configuration.
+        2. **flow-matrix:** Is the adjacency matrix that the AbstractWorkflow uses to know which is the execution order and how the different components are connected. Every column of the matrix is a component.
+        3. **mapper:** The mapper establishes connections between components, allowing data to flow between them during the workflow execution. The connections are defined using a series of key-value pairs, where each key represents an input parameter for a component, and the value is the output data from another component. Input and Output parameters are values of the BaseModels of the respective components.
+
+        This is an example of how an exc_flow.yml file look like:
+        ```yaml
+        components:
+            node-0:
+                class: CreateSolutionSkeleton
+                module-path: components/create_solution_skeleton/create_solution_skeleton.py
+                configuration: !include components/create_solution_skeleton/configuration.yml
+            node-1:
+                class: CreateWorfklowFilesStructure
+                module-path: components/create_workflow_files_structure/create_workflow_files_structure.py
+                configuration: !include components/create_workflow_files_structure/configuration.yml
+
+            node-2:
+                class: ComponentBatchCreator
+                module-path: components/component_batch_creator/component_batch_creator.py
+                configuration: !include components/component_batch_creator/configuration.yml
+
+            node-3:
+                class: MoveWorkFlowFiles
+                module-path: components/move_workflow_files/move_workflow_files.py
+                configuration: !include components/move_workflow_files/configuration.yml
+
+            node-4:
+                class: CreateExcFlow
+                module-path: components/create_exc_flow/create_exc_flow.py
+                configuration: !include components/create_exc_flow/configuration.yml
+
+            flow-matrix:
+            [
+                [0, 1, 1, 0, 1, 1],
+                [0, 0, 1, 1, 1, 1],
+                [0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0],
+            ]
+
+            mapper:
+            node-0.CreateSolutionSkeletonIn.prompt: args.prompt
+
+            node-1.CreateWorfklowFilesStructureIn.workflow_name: node-0.CreateSolutionSkeletonOut.workflow_name
+
+            node-2.ComponentBatchCreatorIn.workflow_name: node-0.CreateSolutionSkeletonOut.workflow_name
+            node-2.ComponentBatchCreatorIn.workflow_path: node-1.CreateWorfklowFilesStructureOut.workflow_path
+            node-2.ComponentBatchCreatorIn.details: node-0.CreateSolutionSkeletonOut.workflow_skeleton
+
+            node-3.MoveWorkflowFilesIn.workflow_name: node-0.CreateSolutionSkeletonOut.workflow_name
+
+            node-4.CreateExcFlowIn.workflow_skeleton: node-0.CreateSolutionSkeletonOut.workflow_skeleton
+            ```
+
+        Ensure that the generated exc_flow.yml file is properly formatted and can be easily modified by users to customize the component's behavior according to their requirements.
+
+    temperature: 0.2
+    openai_api_key: OPENAI_API_KEY

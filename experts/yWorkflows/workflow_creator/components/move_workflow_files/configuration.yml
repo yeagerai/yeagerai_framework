@@ -1,0 +1,6 @@
+name: MoveWorkflowFiles
+description: Creates the necessary folders and files so
+input-class: MoveWorkflowFilesIn
+output-class: MoveWorkflowFilesOut
+parameters:
+    base_path: ./outputs/

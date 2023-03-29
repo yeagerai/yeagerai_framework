@@ -1,6 +1,6 @@
-# Contributing to Yeager SDK
+# Contributing to Yeager Framework
 
-We welcome contributions of all kinds to Yeager SDK, whether it's a bug fix, a new feature, or just an improvement to the documentation. By contributing to this project, you'll be joining a community of developers who are passionate about AI and Open Source.
+We welcome contributions of all kinds to Yeager Framework, whether it's a bug fix, a new feature, or just an improvement to the documentation. By contributing to this project, you'll be joining a community of developers who are passionate about AI and Open Source.
 
 ## How to Contribute
 
@@ -10,21 +10,21 @@ We welcome contributions of all kinds to Yeager SDK, whether it's a bug fix, a n
 4. Push your changes to your forked repository.
 5. Submit a pull request from your branch to the 'master' branch of the main repository.
 
-By creating a separate branch for your changes, you can keep your work isolated from the main codebase and avoid conflicts with other contributors' changes. Additionally, it allows for easier review of your changes by the maintainers of the Yeager SDK project.
+By creating a separate branch for your changes, you can keep your work isolated from the main codebase and avoid conflicts with other contributors' changes. Additionally, it allows for easier review of your changes by the maintainers of the Yeager Framework project.
 
 ## Contributor License Agreement
 
-Thank you for your interest in contributing to the Yeager SDK project (the "Project"). This Contributor License Agreement ("Agreement") is for your protection as a contributor as well as the protection of YeagerAI Inc. and its users; it does not change your rights to use your own contributions for any other purpose.
+Thank you for your interest in contributing to the Yeager Framework project (the "Project"). This Contributor License Agreement ("Agreement") is for your protection as a contributor as well as the protection of YeagerAI Inc. and its users; it does not change your rights to use your own contributions for any other purpose.
 
 To clarify the intellectual property license granted with contributions from any person or entity, YeagerAI Inc. must have on file a signed Contributor License Agreement ("CLA") from each contributor, indicating agreement with the license terms below. You accept and agree to the following terms and conditions for your past, present, and future contributions submitted to YeagerAI Inc. You should sign this agreement before submitting your first contribution and send a copy to [contributors@yeager.ai](mailto:contributors@yeager.ai).
 
 ### Definitions.
 
-(a) "YeagerAI Inc." refers to the company operating the Yeager SDK project, a Delaware corporation.
+(a) "YeagerAI Inc." refers to the company operating the Yeager Framework project, a Delaware corporation.
 
 (b) "You" (or "Your") means the copyright owner or legal entity authorized by the copyright owner that is making this Agreement with YeagerAI Inc.
 
-(c) "Contribution" shall mean any original work of authorship, including any modifications or additions to an existing work, that is intentionally submitted by You to YeagerAI Inc. for inclusion in, or documentation of, the Yeager SDK project (the "Work"). For the purposes of this definition, "submitted" means any form of electronic, verbal, or written communication sent to YeagerAI Inc. or its representatives, including but not limited to communication on electronic mailing lists, source code control systems, and issue tracking systems that are managed by, or on behalf of, YeagerAI Inc. for the purpose of discussing and improving the Work, but excluding communication that is conspicuously marked or otherwise designated in writing by You as "Not a Contribution".
+(c) "Contribution" shall mean any original work of authorship, including any modifications or additions to an existing work, that is intentionally submitted by You to YeagerAI Inc. for inclusion in, or documentation of, the Yeager Framework project (the "Work"). For the purposes of this definition, "submitted" means any form of electronic, verbal, or written communication sent to YeagerAI Inc. or its representatives, including but not limited to communication on electronic mailing lists, source code control systems, and issue tracking systems that are managed by, or on behalf of, YeagerAI Inc. for the purpose of discussing and improving the Work, but excluding communication that is conspicuously marked or otherwise designated in writing by You as "Not a Contribution".
 
 ### License Grant.
 
@@ -64,18 +64,18 @@ This Agreement will terminate automatically if You fail to comply with any of it
 
 ### CLA Agreement.
 
-By submitting Contributions to the Yeager SDK Project, you acknowledge that you have read, understood, and agree to the terms and conditions of this Agreement. If you are agreeing to this Agreement on behalf of a company or other legal entity, you represent that you have the authority to bind that entity to the terms and conditions of this Agreement. If you do not have such authority, or if you do not agree to the terms and conditions of this Agreement, you may not submit any Contributions to the Yeager SDK Project.
+By submitting Contributions to the Yeager Framework Project, you acknowledge that you have read, understood, and agree to the terms and conditions of this Agreement. If you are agreeing to this Agreement on behalf of a company or other legal entity, you represent that you have the authority to bind that entity to the terms and conditions of this Agreement. If you do not have such authority, or if you do not agree to the terms and conditions of this Agreement, you may not submit any Contributions to the Yeager Framework Project.
 
-YeagerAI Inc. may modify this Agreement from time to time. When such modifications are made, YeagerAI Inc. will notify you by email to the address you provided when submitting your Contribution. Your continued submission of Contributions to the Yeager SDK Project following such notification constitutes Your acceptance of the modifications.
+YeagerAI Inc. may modify this Agreement from time to time. When such modifications are made, YeagerAI Inc. will notify you by email to the address you provided when submitting your Contribution. Your continued submission of Contributions to the Yeager Framework Project following such notification constitutes Your acceptance of the modifications.
 
 This Agreement will be governed by the laws of the State of Delaware, without reference to conflict of laws principles.
 
 ### Reporting Bugs and Issues
 
-If you discover a bug or issue with Yeager SDK, please let us know by submitting an issue on our issue tracker.
+If you discover a bug or issue with Yeager Framework, please let us know by submitting an issue on our issue tracker.
 
 ### Contact Us
 
-If you have any questions or concerns about contributing to Yeager SDK, please don't hesitate to contact us at [contributors@yeager.ai](mailto:contributors@yeager.ai)
+If you have any questions or concerns about contributing to Yeager Framework, please don't hesitate to contact us at [contributors@yeager.ai](mailto:contributors@yeager.ai)
 
-Thank you for considering contributing to the Yeager SDK project. We appreciate your time and effort!
+Thank you for considering contributing to the Yeager Framework project. We appreciate your time and effort!

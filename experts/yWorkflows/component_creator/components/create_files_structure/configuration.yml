@@ -1,0 +1,6 @@
+name: CreateFilesStructure
+description: Creates the necessary folders and files so
+input-class: CreateFilesStructureInputDict
+output-class: CreateFilesStructureOutputDict
+parameters:
+    base_path: ./outputs/

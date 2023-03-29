@@ -1,0 +1,47 @@
+components:
+  node-0:
+    class: CreateSolutionSkeleton
+    module-path: components/create_solution_skeleton/create_solution_skeleton.py
+    configuration: !include components/create_solution_skeleton/configuration.yml
+  node-1:
+    class: CreateWorfklowFilesStructure
+    module-path: components/create_workflow_files_structure/create_workflow_files_structure.py
+    configuration: !include components/create_workflow_files_structure/configuration.yml
+
+  node-2:
+    class: ComponentBatchCreator
+    module-path: components/component_batch_creator/component_batch_creator.py
+    configuration: !include components/component_batch_creator/configuration.yml
+
+  node-3:
+    class: MoveWorkFlowFiles
+    module-path: components/move_workflow_files/move_workflow_files.py
+    configuration: !include components/move_workflow_files/configuration.yml
+
+  node-4:
+    class: CreateExcFlow
+    module-path: components/create_exc_flow/create_exc_flow.py
+    configuration: !include components/create_exc_flow/configuration.yml
+
+flow-matrix:
+  [
+    [0, 1, 1, 0, 1],
+    [0, 0, 1, 1, 1],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+  ]
+
+mapper:
+  node-0.CreateSolutionSkeletonIn.prompt: args.prompt
+
+  node-1.CreateWorfklowFilesStructureIn.workflow_name: node-0.CreateSolutionSkeletonOut.workflow_name
+
+  node-2.ComponentBatchCreatorIn.workflow_name: node-0.CreateSolutionSkeletonOut.workflow_name
+  node-2.ComponentBatchCreatorIn.workflow_path: node-1.CreateWorfklowFilesStructureOut.workflow_path
+  node-2.ComponentBatchCreatorIn.details: node-0.CreateSolutionSkeletonOut.workflow_skeleton
+
+  node-3.MoveWorkflowFilesIn.workflow_name: node-0.CreateSolutionSkeletonOut.workflow_name
+
+  node-4.CreateExcFlowIn.workflow_skeleton: node-0.CreateSolutionSkeletonOut.workflow_skeleton

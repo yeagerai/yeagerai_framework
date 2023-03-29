@@ -45,21 +45,6 @@ Commands:
 
 Once created, the entire AI Expert is uploaded to GitHub. To use yExpertBuilder, call the `/create-expert` command in our [discord server](https://discord.com/invite/VpfmXEMN66).
 
-## Getting Started building with the YeagerAI Framework
-To begin exploring the possibilities of the YeagerAI Framework, follow these steps:
-- Clone or download the repository.
-- Navigate through the core/ directory to examine the underlying code and routines.
-- Review the examples provided in the experts/ folder to understand how to create AI Experts using the YeagerAI Framework.
-- Join our Discord server to communicate with existing AI Experts and participate in discussions with the developer community.
-- Start building your own domain-specific AI Experts by leveraging the tools and features provided in the YeagerAI Framework.
-- Stay updated with the latest features and improvements by following the YeagerAI Framework's development and engaging with our community.
-- Contribute to the project by submitting pull requests, reporting bugs, or suggesting new features and enhancements.
-
-## Why Choose the YeagerAI Framework?
-The YeagerAI Framework is designed to help developers effortlessly create AI Experts with domain-specific knowledge. By harnessing the power of advanced language models like GPT-4, the framework enables the development of AI Experts that can understand and generate human-like responses. The built-in support for workflow/component structures, Discord bot interfaces, and GitHub native integration make the YeagerAI Framework a comprehensive solution for AI-driven domain expertise.
-
-Empower AI with your domain expertise using the YeagerAI Framework and unlock a new world of possibilities. Join us on this exciting journey as we continue to improve and expand the capabilities of the YeagerAI Framework, shaping the future of AI-driven domain expertise.
-
 ## Getting Started
 
 To get started with the YeagerAI Framework, follow these steps:

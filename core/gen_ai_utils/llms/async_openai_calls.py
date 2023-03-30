@@ -17,14 +17,14 @@ async def fetch_openai_completion(
 
 
 async def get_openai_completion(model: str, messages: list[dict]) -> dict:
-    async with aiohttp.ClientSession() as session:
-        for i in range(5):
-            try:
+    for i in range(5):
+        try:
+            async with aiohttp.ClientSession() as session:
                 completion = await fetch_openai_completion(session, model, messages)
                 return completion
-            except TimeoutError as err:
-                print(f"Timeout error: {err}")
-                continue
+        except TimeoutError as err:
+            print(f"Timeout error: {err}")
+            continue
     return completion
 
 

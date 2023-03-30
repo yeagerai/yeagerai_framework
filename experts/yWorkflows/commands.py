@@ -44,7 +44,10 @@ async def create_workflow(
 
     await thread.add_user(ctx.user)
 
-    await thread.send(f"Hi {mention_string}, this is the thread for your new workflow!")
+    await thread.send(f"""Hi {mention_string}, this is the thread for your new workflow!\n\n
+By continuing to interact with the yWorkflows bot, you acknowledge and agree to our Terms and Conditions https://yeager.ai/terms-and-conditions .\n 
+Please ensure that you have read and understood these terms before proceeding with the use of our bot.\n 
+Your continued interaction with the bot constitutes your acceptance of these terms.""")
 
     yeager_github_app = YeagerGithubApp(repo_id=workflow_ID, discord_user_name=ctx.user)
     await yeager_github_app.build_app()

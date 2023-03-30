@@ -29,7 +29,7 @@ parameters:
     - 'inputs': should be a list of name, description and type 
     - 'outputs': should be a list of name, description and type
     - 'parameters': should be a list of name, default_value, description and type. Those parameters will be loaded into the __init__() from a yml file.
-    - 'transformer_breakdown': is a step-by-step summary of the transform function. It contains a list with one step per bulletpoint. 
+    - 'transformer_breakdown': is a step-by-step summary of the transform function. It ONLY CONTAINS a list of strings with one step per bulletpoint.
     - 'external_calls': optional, a list of the calls to external APIs and endpoints, with their names and descriptions.
 
     'transformer_breakdown' should be written in pseudocode, so that it can be used as a prompt in a future step.

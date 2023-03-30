@@ -16,8 +16,9 @@ The YeagerAI Framework boasts several features that streamline the AI Expert cre
 
 Upcoming features:
 
-- yExpertBuilder
 - Langchain Integration
+- yExpertBuilder
+- ChatGPT Plugins
 - Payments Layer
 - Composability Layer
 - Automated Testing & Code Improvement
@@ -45,7 +46,7 @@ Commands:
 
 Once created, the entire AI Expert is uploaded to GitHub. To use yExpertBuilder, call the `/create-expert` command in our [discord server](https://discord.com/invite/VpfmXEMN66).
 
-## Getting Started
+## Create your own AI Expert
 
 To get started with the YeagerAI Framework, follow these steps:
 

@@ -31,7 +31,7 @@ class YeagerGithubApp:
         repo_name: str,
         discord_callbacks: typing.Any,
     ) -> None:
-        self.repo = self.org.create_repo(repo_name, private=True)
+        self.repo = self.org.create_repo(repo_name)
         await discord_callbacks["send_message"](
             f"Created new repo: {self.repo.name} at {self.repo.html_url}"
         )

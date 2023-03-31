@@ -41,4 +41,7 @@ class StepEmbed(discord.Embed):
         self.title = title
         self.description = description
         for key, value in step_dict.items():
-            self.add_field(name=key, value=value[:1000] + "...", inline=False)
+            if isinstance(value,discord.ui.TextInput):
+                self.add_field(name=key, value=value.value[:1000] + "...", inline=False)
+            else:
+                self.add_field(name=key, value=value[:1000] + "...", inline=False)

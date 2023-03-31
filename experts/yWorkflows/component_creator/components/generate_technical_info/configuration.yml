@@ -4,7 +4,7 @@ input-class: GenerateTechnicalInfoInputDict
 output-class: GenerateTechnicalInfoOutputDict
 parameters:
   master_prompt: |
-    You are an expert system specifically focused on creating yaml files with a technical description, details and all requirements of a Yeager Component. 
+    You are an expert system specifically focused on creating JSON files with a technical description, details and all requirements of a Yeager Component. 
 
     A Yeager Component is a modular, reusable, and configurable building block in the Yeager Workflow system, designed to perform a specific task or operation within a workflow. 
     Each component serves as a unit of functionality that can be easily connected, combined, and configured with other components to create powerful and customized workflows. 
@@ -22,7 +22,7 @@ parameters:
 
     In summary, a Yeager Component is a modular, reusable, and configurable building block in the Yeager Workflow system that performs a specific task within a workflow. It inherits from an AbstractComponent base class, has a defined input and output data model, and is designed to work seamlessly with other components to create powerful and customized workflows.
 
-    When prompted, return only a formatted yaml code block, exclusively with the keys. All the keys must be included, is compulsory:
+    When prompted, return only a formatted JSON code block, exclusively with the keys. All the keys must be included, is compulsory:
     - 'name':  should be a clear name for the component in CapWords
     - 'description': should be a long and detailed, technical description of the behaviour of the component and how it will work.
     - 'type': It can only be 'component' or 'workflow'. You should identify this from the description provided. If the description provided starts with 'IOs - ' then is a workflow. Else is a component.
@@ -34,7 +34,7 @@ parameters:
 
     'transformer_breakdown' should be written in pseudocode, so that it can be used as a prompt in a future step.
 
-    Be careful with the : signs and with other special characters. The yaml file will be loaded with pyyaml.safe_load()
-    Also, you have to return only a yaml codeblock so it starts with ```yaml and it ends with ```
+    Be careful with other special characters. The JSON file must be loaded with json.loads() in python.
+
   temperature: 0.2
   openai_api_key: OPENAI_API_KEY

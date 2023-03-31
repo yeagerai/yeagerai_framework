@@ -1,6 +1,7 @@
 import os
 from typing import Optional
 import typing
+import json
 
 import yaml
 from dotenv import load_dotenv
@@ -9,7 +10,7 @@ from pydantic import BaseModel
 import openai
 
 from core.workflows.abstract_component import AbstractComponent
-from core.gen_ai_utils.llms.async_openai_calls import get_openai_completion
+from core.workflows.utils import get_cleaned_json
 
 
 class CreateSolutionSkeletonIn(BaseModel):
@@ -18,7 +19,6 @@ class CreateSolutionSkeletonIn(BaseModel):
 
 class CreateSolutionSkeletonOut(BaseModel):
     workflow_name: str
-    total_tokens_used: int
     workflow_skeleton: str
     component_internal_status: int
 
@@ -41,17 +41,15 @@ class CreateSolutionSkeleton(AbstractComponent):
 
         await callbacks["send_message"]("I'm preparing a workflow solution sketch...")
 
-        llm = "gpt-4"
-        for i in range(5):
-            completion = await get_openai_completion(
-                llm,
-                [
+        for _ in range(5):
+            resp_yml = await get_cleaned_json(
+                model="gpt-4",
+                prompts=[
                     {"role": "system", "content": self.master_prompt},
                     {"role": "user", "content": args.prompt},
-                ],
+                ]
             )
-
-            if "error" in completion:
+            if "Error" in resp_yml:
                 answer = await callbacks["retry_component"](
                     "We are having some issues with the OpenAI API. This happens often as they are working on scaling their systems. Do you want to retry?"
                 )
@@ -61,13 +59,7 @@ class CreateSolutionSkeleton(AbstractComponent):
                 else:
                     break
             try:
-                response = (
-                    completion["choices"][0]["message"]["content"]
-                    .split("```yaml")[1]
-                    .split("```")[0]
-                )
-
-                resp_yml = yaml.safe_load(response)
+                
                 name_desc_edited = await callbacks["edit_step"](
                     title="Workflow name and description",
                     description="Please modify the form below and submit the changes.",
@@ -100,8 +92,6 @@ class CreateSolutionSkeleton(AbstractComponent):
             except (
                 KeyError,
                 IndexError,
-                yaml.scanner.ScannerError,
-                yaml.parser.ParserError,
             ) as err:
                 print(err)
                 answer = await callbacks["retry_component"](
@@ -114,8 +104,7 @@ class CreateSolutionSkeleton(AbstractComponent):
 
         out = CreateSolutionSkeletonOut(
             workflow_name=resp_yml["name"],
-            workflow_skeleton=response,
-            total_tokens_used=completion["usage"]["total_tokens"],
+            workflow_skeleton=json.dumps(resp_yml),
             component_internal_status=200,
         )
         repo_id = callbacks["yeager_github_app"].repo_id

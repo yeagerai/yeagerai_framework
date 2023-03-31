@@ -35,7 +35,7 @@ async def get_yeager_app_access_token() -> str:
 
     # Get the list of installations
     installations_url = f"{api_base_url}/app/installations"
-    response = requests.get(installations_url, headers=headers, timeout=10)
+    response = requests.get(installations_url, headers=headers, timeout=100)
 
     INSTALLATION_ID = response.json()[-1]["id"]
 

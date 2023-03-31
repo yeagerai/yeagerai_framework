@@ -2,6 +2,7 @@ import os
 import typing
 from typing import Optional
 
+import json
 import yaml
 from dotenv import load_dotenv
 from fastapi import FastAPI
@@ -9,8 +10,7 @@ from pydantic import BaseModel
 import openai
 
 from core.workflows.abstract_component import AbstractComponent
-from core.gen_ai_utils.llms.async_openai_calls import get_openai_completion
-from core.workflows.utils import convert_to_snake_case
+from core.workflows.utils import get_cleaned_json, convert_to_snake_case
 
 
 class GenerateTechnicalInfoInputDict(BaseModel):
@@ -40,19 +40,17 @@ class GenerateTechnicalInfo(AbstractComponent):
         openai.api_key = self.openai_api_key
         await callbacks["send_message"]("I'm preparing a component solution design...")
 
-        llm = "gpt-4"
-        for i in range(5):
-            completion = await get_openai_completion(
-                llm,
-                [
+        for _ in range(5):
+            resp_yml = await get_cleaned_json(
+                model="gpt-4",
+                prompts=[
                     {"role": "system", "content": self.master_prompt},
                     {"role": "user", "content": args.prompt},
-                ],
+                ]
             )
-
-            if "error" in completion:
+            if "Error" in resp_yml:
                 answer = await callbacks["retry_component"](
-                    "We are having some issues with the OpenAI API. Do you want to retry?"
+                    "We are having some issues with the OpenAI API. This happens often as they are working on scaling their systems. Do you want to retry?"
                 )
 
                 if answer == "retry":
@@ -60,14 +58,6 @@ class GenerateTechnicalInfo(AbstractComponent):
                 else:
                     break
             try:
-                response = (
-                    completion["choices"][0]["message"]["content"]
-                    .split("```yaml")[1]
-                    .split("```")[0]
-                )
-
-                resp_yml = yaml.safe_load(response)
-                print(resp_yml)
                 ## callback de t'agrada el resultat? no? continue, si? break
                 answer = await callbacks["edit_step"](
                     title="Component Stream",
@@ -85,14 +75,12 @@ class GenerateTechnicalInfo(AbstractComponent):
                     if line.strip()
                 ]
                 resp_yml["transformer_breakdown"] = new_list
-                response = yaml.dump(resp_yml)
+                response = json.dumps(resp_yml)
                 break
             except (
                 IndexError,
                 TypeError,
                 KeyError,
-                yaml.scanner.ScannerError,
-                yaml.parser.ParserError,
             ) as err:
                 print(err)
                 answer = await callbacks["retry_component"](
@@ -103,7 +91,7 @@ class GenerateTechnicalInfo(AbstractComponent):
                 else:
                     break
 
-        resp_yml = yaml.safe_load(response)
+        resp_yml = json.loads(response)
         if resp_yml["transformer_breakdown"] == [] and resp_yml["type"] == "workflow":
             resp_yml["transformer_breakdown"] = [
                 "Execute the transform of the AbstractWorkflow",
@@ -117,7 +105,8 @@ class GenerateTechnicalInfo(AbstractComponent):
             component_internal_status=200,
         )
         transformer_breakdown_string = "\n".join(
-            ["- " + item for item in resp_yml["transformer_breakdown"]]
+            "- " + (item if isinstance(item, str) else json.dumps(item))
+            for item in resp_yml["transformer_breakdown"]
         )
         snake_component = convert_to_snake_case(resp_yml["name"])
         await callbacks["yeager_github_app"].create_file_commit_n_push(

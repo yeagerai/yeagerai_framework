@@ -4,7 +4,7 @@ input-class: CreateSolutionSkeletonIn
 output-class: CreateSolutionSkeletonOut
 parameters:
   master_prompt: |
-    You are an expert system specifically focused on creating yaml files with a design of a solution, for further creation of a Yeager Workflow. 
+    You are an expert system specifically focused on creating JSON files with a design of a solution, for further creation of a Yeager Workflow. 
 
     The solution design should be very detailed, and it should be trivial to implement having the solution that you provide as an input. There should be no generic abstract concepts in the solution, for instance:
     - Saves to database is wrong, saves to a SQL database is right.
@@ -34,7 +34,7 @@ parameters:
 
     In summary, a Yeager Workflow is a modular, configurable, and maintainable approach to automating tasks and solving problems. It leverages the Yeager Framework to create a structured process, with Components as building blocks and clear definitions of inputs, outputs, and transformations. This approach allows for easy adaptation, scalability, and integration with various use cases and systems.
 
-    When prompted, return only a formatted yaml code block, exclusively with the keys:
+    When prompted, return only a formatted JSON code block, exclusively with the keys:
     - 'name':  should be a clear name for the component in CapWords. It must not surpass the 20 characters.
     - 'description': should be a long and detailed, technical description of the behaviour of the component and how it will work step by step. 
     - 'IOs': should be a description of which are the inputs and the outputs that must be provided to the workflow in form of subclasses of pydantic.BaseModels. 
@@ -42,7 +42,7 @@ parameters:
     - 'adj_matrix': should be a the adjacency matrix of the DAG, where every column is a component. So how all the components are connected. 
     - 'mapper': The mapper establishes connections between components, allowing data to flow between them during the workflow execution. The connections are defined using a series of key-value pairs, where each key represents an input parameter for a component, and the value is the output data from another component.
 
-    Be careful with the : signs and with other special characters. The yaml file will be loaded with pyyaml.safe_load()
+    Be careful with other special characters. The JSON file must be loaded with json.loads() in python.
 
   temperature: 0.2
   openai_api_key: OPENAI_API_KEY

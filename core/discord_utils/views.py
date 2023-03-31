@@ -16,7 +16,7 @@ class RetryView(discord.ui.View):
         self, interaction: discord.Interaction, button: discord.ui.Button
     ) -> None:
         await interaction.channel.send(content="Retrying...")
-        await interaction.response.defer()
+        # await interaction.response.defer()
         self.result_future.set_result("retry")
         self.stop()
 
@@ -27,7 +27,7 @@ class RetryView(discord.ui.View):
         await interaction.channel.send(
             content="Canceling, and finishing the workflow creation..."
         )
-        await interaction.response.defer()
+        # await interaction.response.defer()
         self.result_future.set_result("cancel")
         self.stop()
 
@@ -48,7 +48,7 @@ class StepEditView(discord.ui.View):
         modal = StepEditModal(self.step_dict, self.embed)
         await interaction.response.send_modal(modal)
         self.updated_values.set_result(await modal.new_step_dict)
-        await interaction.response.defer()
+        # await interaction.response.defer()
         await interaction.channel.send(content="Editing...")
         self.stop()
 
@@ -59,7 +59,7 @@ class StepEditView(discord.ui.View):
     ) -> None:
         # Send the original embed message
         self.updated_values.set_result(self.step_dict)
-        await interaction.response.defer()
+        # await interaction.response.defer()
         await interaction.channel.send(content="Approving...")
         self.stop()
 
@@ -95,6 +95,5 @@ class AddCollaboratorsView(discord.ui.View):
         self.collaborators_names.set_result(
             (await modal.collaborators_string).value.split("\n")
         )
-        await interaction.response.defer()
         await interaction.channel.send(content="Adding collaborators...")
         self.stop()

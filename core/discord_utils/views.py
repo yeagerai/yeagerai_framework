@@ -15,7 +15,7 @@ class RetryView(discord.ui.View):
     async def retry(
         self, interaction: discord.Interaction, button: discord.ui.Button
     ) -> None:
-        await interaction.channel.send(content="Retrying...")
+        await interaction.response.send_message(content="Retrying...")
         # await interaction.response.defer()
         self.result_future.set_result("retry")
         self.stop()
@@ -24,7 +24,7 @@ class RetryView(discord.ui.View):
     async def cancel(
         self, interaction: discord.Interaction, button: discord.ui.Button
     ) -> None:
-        await interaction.channel.send(
+        await interaction.response.send_message(
             content="Canceling, and finishing the workflow creation..."
         )
         # await interaction.response.defer()
@@ -49,7 +49,7 @@ class StepEditView(discord.ui.View):
         await interaction.response.send_modal(modal)
         self.updated_values.set_result(await modal.new_step_dict)
         # await interaction.response.defer()
-        await interaction.channel.send(content="Editing...")
+        await interaction.response.send_message(content="Editing...")
         self.stop()
 
     # Add the "Approve" button
@@ -60,7 +60,7 @@ class StepEditView(discord.ui.View):
         # Send the original embed message
         self.updated_values.set_result(self.step_dict)
         # await interaction.response.defer()
-        await interaction.channel.send(content="Approving...")
+        await interaction.response.send_message(content="Approving...")
         self.stop()
 
 
@@ -93,7 +93,7 @@ class AddCollaboratorsView(discord.ui.View):
         modal = AddCollaboratorsModal()
         await interaction.response.send_modal(modal)
         self.collaborators_names.set_result(
-            (await modal.collaborators_string).value.split("\n")
+            (await modal.collaborators_string).split("\n")
         )
-        await interaction.channel.send(content="Adding collaborators...")
+        await interaction.followup.send(content="Adding collaborators...")
         self.stop()

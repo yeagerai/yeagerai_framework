@@ -45,5 +45,6 @@ class AddCollaboratorsModal(
         )
 
     async def on_submit(self, interaction: discord.Interaction) -> None:
-        self.collaborators_string.set_result(self.children[0])
+        await interaction.response.defer()
+        self.collaborators_string.set_result(self.children[0].value)
         self.stop()

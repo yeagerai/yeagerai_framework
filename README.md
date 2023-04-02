@@ -33,7 +33,7 @@ pip install yeagerai-framework
 python -m yeagerai create_teammate --name PythonSnippetsTeammate
 ```
 
-3. Navigate to the generated project folder and customize your teammate according to the [documentation]().
+3. Navigate to the generated project folder and customize your teammate according to the [documentation](https://yeagerai.gitbook.io/docs).
 
 4. Deploy your teammate using the provided deployment scripts or configure deployment manually.
 
@@ -43,7 +43,7 @@ python -m yeagerai create_teammate --name PythonSnippetsTeammate
 
 ## Documentation
 
-For full documentation on the YeagerAI Framework, please visit [the docs]().
+For full documentation on the YeagerAI Framework, please visit [the docs](https://yeagerai.gitbook.io/docs).
 
 ## Support
 

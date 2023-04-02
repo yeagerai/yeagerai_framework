@@ -1,6 +1,0 @@
-name: CreateWorkflowFilesStructure
-description: Creates the necessary folders and files so
-input-class: CreateWorkflowFilesStructureIn
-output-class: CreateWorkflowFilesStructureOut
-parameters:
-    base_path: ./outputs/

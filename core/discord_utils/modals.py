@@ -22,7 +22,7 @@ class StepEditModal(
     async def on_submit(self, interaction: discord.Interaction) -> None:
         new_step_dict = {}
         for index, field in enumerate(self.embed.fields):
-            new_step_dict[field.name] = self.children[index]
+            new_step_dict[field.name] = self.children[index].value
         new_embed = StepEmbed(self.embed.title, self.embed.description, new_step_dict)
         await interaction.response.edit_message(embed=new_embed)
         self.new_step_dict.set_result(new_step_dict)

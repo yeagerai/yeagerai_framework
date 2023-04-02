@@ -16,7 +16,6 @@ class RetryView(discord.ui.View):
         self, interaction: discord.Interaction, button: discord.ui.Button
     ) -> None:
         await interaction.response.send_message(content="Retrying...")
-        # await interaction.response.defer()
         self.result_future.set_result("retry")
         self.stop()
 
@@ -27,7 +26,6 @@ class RetryView(discord.ui.View):
         await interaction.response.send_message(
             content="Canceling, and finishing the workflow creation..."
         )
-        # await interaction.response.defer()
         self.result_future.set_result("cancel")
         self.stop()
 
@@ -49,7 +47,6 @@ class StepEditView(discord.ui.View):
         await interaction.response.send_modal(modal)
         self.updated_values.set_result(await modal.new_step_dict)
         # await interaction.response.defer()
-        await interaction.response.send_message(content="Editing...")
         self.stop()
 
     # Add the "Approve" button
@@ -59,7 +56,6 @@ class StepEditView(discord.ui.View):
     ) -> None:
         # Send the original embed message
         self.updated_values.set_result(self.step_dict)
-        # await interaction.response.defer()
         await interaction.response.send_message(content="Approving...")
         self.stop()
 

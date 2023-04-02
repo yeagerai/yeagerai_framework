@@ -21,6 +21,11 @@ async def get_openai_completion(model: str, messages: list[dict]) -> dict:
         try:
             async with aiohttp.ClientSession() as session:
                 completion = await fetch_openai_completion(session, model, messages)
+                try:
+                    completion["choices"][0]["message"]["content"]
+                except KeyError:
+                    print(completion)
+                    continue
                 return completion
         except TimeoutError as err:
             print(f"Timeout error: {err}")

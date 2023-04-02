@@ -3,7 +3,7 @@ import urllib
 
 import discord
 
-from core.discord_utils.modals import StepEditModal, AddCollaboratorsModal
+from yeagerai.interfaces.discord.modals import StepEditModal, AddCollaboratorsModal
 
 
 class RetryView(discord.ui.View):

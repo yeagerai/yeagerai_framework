@@ -1,7 +1,7 @@
 import asyncio
 import discord
 
-from core.discord_utils.embeds import StepEmbed
+from yeagerai.interfaces.discord.embeds import StepEmbed
 
 
 class StepEditModal(

@@ -1,4 +1,3 @@
-
 def convert_to_snake_case(string: str) -> str:
     new_string = ""
     for i, char in enumerate(string):

@@ -5,9 +5,9 @@ import re
 import discord
 from discord.ext import commands
 
-from core.discord_utils.views import RetryView, AddCollaboratorsView
-from core.discord_utils.embeds import StepEmbed, WorkflowEmbed
-from core.discord_utils.views import StepEditView, TweetButton
+from yeagerai.interfaces.discord.views import RetryView, AddCollaboratorsView
+from yeagerai.interfaces.discord.embeds import StepEmbed, WorkflowEmbed
+from yeagerai.interfaces.discord.views import StepEditView, TweetButton
 
 
 async def send_message(

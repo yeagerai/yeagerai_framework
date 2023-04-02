@@ -10,12 +10,11 @@ import yaml
 from yamlinclude import YamlIncludeConstructor
 import numpy as np
 
-from core.abstract_component import AbstractComponent
-from core.abstract_context import AbstractContext
+from yeagerai.core.abstract_component import AbstractComponent
+from yeagerai.core.abstract_context import AbstractContext
+
 
 class AbstractWorkflow(AbstractComponent):
-    ## TODO: docker compose, in the future, if there are incompatibilities between requirements
-    ## then instantiating the class = ws.connect(), and execute() = ws.send_msg()
     @classmethod
     @final
     def workflow_exc_flow_path(cls) -> str:

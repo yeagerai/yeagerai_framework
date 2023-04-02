@@ -4,7 +4,8 @@ import importlib.util
 import os
 import typing
 from typing_extensions import final
-from core.abstract_context import AbstractContext
+from yeagerai.core.abstract_context import AbstractContext
+
 
 class AbstractComponent(abc.ABC):
     to_implement_methods: typing.List[str] = ["__init__", "execute"]
@@ -112,7 +113,6 @@ class AbstractComponent(abc.ABC):
             if arg.annotation is arg.empty:
                 raise TypeError(f"Error {arg.name} has no annotation")
         return
-
 
     @classmethod
     def check_is_module(cls) -> None:

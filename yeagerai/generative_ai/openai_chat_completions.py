@@ -1,5 +1,5 @@
 import os
-
+import json
 import aiohttp
 
 
@@ -17,7 +17,7 @@ async def fetch_openai_completion(
 
 
 async def get_openai_completion(model: str, messages: list[dict]) -> dict:
-    for i in range(5):
+    for _ in range(5):
         try:
             async with aiohttp.ClientSession() as session:
                 completion = await fetch_openai_completion(session, model, messages)
@@ -59,20 +59,19 @@ async def get_openai_completion_mocked(model: str, messages: list[dict]) -> dict
     }
     return completion
 
-async def get_cleaned_json(model:str, prompts:list[dict])->dict:
-    completion = await get_openai_completion(
-            model,prompts
-        )
+
+async def get_cleaned_json(model: str, prompts: list[dict]) -> dict:
+    completion = await get_openai_completion(model, prompts)
 
     raw_json = completion["choices"][0]["message"]["content"]
 
     # Remove ```json and ``` if present
     if raw_json.startswith("```json"):
-        raw_json = raw_json[len("```json"):]
+        raw_json = raw_json[len("```json") :]
     if raw_json.startswith("```"):
-        raw_json = raw_json[len("```"):]
+        raw_json = raw_json[len("```") :]
     if raw_json.endswith("```"):
-        raw_json = raw_json[:-len("```")]
+        raw_json = raw_json[: -len("```")]
 
     try:
         cleaned_json = json.loads(raw_json)
